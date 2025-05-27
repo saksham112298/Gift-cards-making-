@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift Card Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Gift Card Generator</h1>
+    <div class="controls">
+      <input type="text" id="searchBox" placeholder="Search cards...">
+      <button id="darkModeToggle">Toggle Dark Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="card-options" class="card-container">
+      <!-- Gift card options (Amazon, Flipkart, etc.) -->
+    </section>
+
+    <section id="amount-section" class="hidden">
+      <h2>Enter Amount for <span id="selected-card"></span></h2>
+      <input type="number" id="amount" placeholder="Amount">
+      <input type="email" id="email" placeholder="Your Email">
+      <button onclick="goToPayment()">Proceed to Payment</button>
+    </section>
+
+    <section id="payment-section" class="hidden">
+      <h2>Select Payment Method</h2>
+      <button onclick="simulatePayment('upi')">Pay with UPI</button>
+      <button onclick="showCardForm()">Pay with Card</button>
+    </section>
+
+    <section id="card-form" class="hidden">
+      <h2>Enter Card Details</h2>
+      <input type="text" id="cardNumber" placeholder="Card Number">
+      <input type="text" placeholder="MM/YY">
+      <input type="password" placeholder="CVV">
+      <input type="text" placeholder="Cardholder Name">
+      <button onclick="simulatePayment('card')">Pay Now</button>
+    </section>
+
+    <section id="loading-section" class="hidden">
+      <h2>Processing Payment...</h2>
+      <div class="spinner"></div>
+    </section>
+
+    <section id="confirmation-section" class="hidden">
+      <h2>Payment Successful</h2>
+      <div class="green-tick">✔</div>
+      <p>Your gift code:</p>
+      <h3 id="giftCode"></h3>
+      <button onclick="copyCode()">Copy Code</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with HTML, CSS, JS | GitHub Pages ready</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
